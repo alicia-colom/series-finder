@@ -1,17 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Codeflix · Search&Chill</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="icon" href="./assets/images/favicon.png" />
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Codeflix · Search&Chill</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./assets/css/main.css" />
+		<!--     <link rel="icon" href="./assets/images/favicon.png" /> -->
+	</head>
 
-  <body>
+	<body>
+		<header class="header">
+			<h1 class="header__title">Codeflix</h1>
+			<h2 class="header__subtitle">Search&chill</h2>
+		</header>
 
-    
-    <script src="./assets/js/main.js"></script>
-  </body>
+		<aside class="aside">
+			<form action="" class="form">
+				<label for="search" class="form__label">¿Qué te apetece ver hoy?</label>
+				<input
+					id="search"
+					type="text"
+					class="js-textAreaSearch form__textArea"
+					title="Escribe aquí tu término de búsqueda"
+				/>
+				<input
+					type="button"
+					class="js-btnSearch form__btn"
+					value="Buscar"
+					title="Clica aquí para buscar"
+				/>
+			</form>
+
+			<ul class="js-favList favList">
+				<!-- Elemento FAV para uso en JS -->
+				<li class="js-favItem favList__favItem">
+					<h3 class="js-favItemTitle favList__favItem--title"></h3>
+					<img
+						class="js-favItemImg favList__favItem--img"
+						src=""
+						alt=""
+						title=""
+					/>
+				</li>
+				<!-- fin elemento FAV -->
+			</ul>
+		</aside>
+
+		<main class="main">
+			<ul class="main__searchList">
+				<!-- Elemento SEARCH para uso en JS -->
+				<li class="js-searchItem searchList__searchItem">
+					<h3 class="js-searchItemTitle searchList__searchItem--title"></h3>
+					<img
+						class="js-searchItemImg searchList__searchItem--img"
+						src=""
+						alt=""
+						title=""
+					/>
+				</li>
+				<!-- fin elemento SEARCH -->
+			</ul>
+		</main>
+
+		<footer class="footer">
+			<div>
+				<p class="footer__copyright">
+					Made with<span class="footer__copyright--icon"> love </span>by
+					<span class="footer__copyright--author"> Alicia Colom </span>
+				</p>
+				<small class="footer__small">Adalab #PromoKizzy 2020</small>
+			</div>
+		</footer>
+
+		<script src="./assets/js/main.js"></script>
+	</body>
 </html>
