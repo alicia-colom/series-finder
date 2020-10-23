@@ -12,11 +12,18 @@
 		<!--     <link rel="icon" href="./assets/images/favicon.png" /> -->
 	</head>
 
-	<body>
+	<body class="body">
 		<header class="header">
-		  <h1 class="header__title">Codeflix</h1>
-		  <h2 class="header__subtitle">Search&chill</h2>
+			<h1 class="header__title">
+				<img
+					class="header__title--logo"
+					src="https://fontmeme.com/permalink/200909/84165089e106b0066fa661862435c23b.png"
+					alt="logo Codeflix"
+				/>
+			</h1>
+			<h2 class="header__subtitle">Search&chill</h2>
 		</header>
+
 		<aside class="aside">
 			<section class="aside__search">
 				<form action="" class="form">
@@ -43,16 +50,16 @@
 						title="Clica aquí para borrar tu búsqueda"
 					/>
 				</form>
-				<p class="js-searchWarning aside__warning hidden">
+				<p class="js-searchWarning aside__search--warning hidden">
 					Debes introducir una palabra para poder realizar la búsqueda
 				</p>
 			</section>
 			<section class="aside__favList">
-				<h2 class="favList__title">Lista de favoritos</h2>
-				<p class="js-favListEmpty favList__empty hidden">
+				<h2 class="aside__favList--title">Lista de favoritos</h2>
+				<p class="js-favListEmpty aside__favList--empty hidden">
 					Tu lista de favoritos está vacía.
 				</p>
-				<p class="js-favListAdvice favList__advice hidden">
+				<p class="js-favListAdvice aside__favList--advice hidden">
 					Realiza una búsqueda e incluye aquí tu selección.
 				</p>
 				<ul class="js-favList favList">
@@ -72,7 +79,7 @@
 		</aside>
 
 		<main class="main">
-			<ul class="js-searchList main__searchList">
+			<ul class="js-searchList searchList">
 		    <!-- Elemento SEARCH para uso en JS -->
 		    <h2 class="searchList__title"></h2>
 				<li class="js-searchItem searchList__searchItem">

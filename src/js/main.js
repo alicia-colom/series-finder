@@ -1,9 +1,13 @@
 'use strict';
 
-// [] 2.- eliminar FAVs clicando sobre ellas
+// [] 1.- eliminar FAVs clicando sobre ellas
+//   [] 1.2.- incluir boton para eliminar FAVs
+//   [] 1.3.- event.currentTarget en el boton de eliminar las pelis de favoritos
+// 	 [] 1.4.- s queda pillada la FavList con un único elemento
+// 	 [] 1.5.- localStorage de FAVs
+// [] 2.- si no hay favoritos, mostrar el texto "no tienes favoritos"
 // [] 3.- boton RESET en búsqueda --> que borre las series que aparecen en TU BUSQUEDA
-// [] 5.- event.currentTarget en el boton de eliminar las pelis de favoritos
-// [] 6.- si no hay favoritos, mostrar el texto "no tienes favoritos"
+
 
 ////////////////
 

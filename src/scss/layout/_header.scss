@@ -1,0 +1,25 @@
+.header {
+	&__title {
+		&--logo {
+      height: 110px;
+      border-radius: 6%;
+			background-color: #7ccacf;
+			animation-name: logo;
+			animation-duration: 5s;
+			animation-iteration-count: 1;
+			@keyframes logo {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			-webkit-box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.55);
+			-moz-box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.55);
+			box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.55);
+		}
+	}
+	&__subtitle {
+	}
+}

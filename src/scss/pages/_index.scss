@@ -1,3 +1,13 @@
+.body {
+  background-color: #8cd8dd;
+  font-family: "Roboto", sans-serif;;
+}
+
+.hidden {
+  display: none;
+}
+
 @import 'layout/header';
-@import 'layout/page';
+@import 'layout/aside';
+@import 'layout/main';
 @import 'layout/footer';

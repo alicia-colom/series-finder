@@ -1,0 +1,39 @@
+.addFav {
+	background-color: #800080;
+}
+
+.aside {
+	&__search {
+		&--warning {
+		}
+	}
+	&__favList {
+		&--title {
+		}
+		&--empty {
+		}
+		&--advice {
+		}
+	}
+}
+
+.form {
+	&__label {
+	}
+	&__textArea {
+	}
+	&__btn {
+	}
+	&__reset {
+	}
+}
+
+.favList {
+	&__favItem {
+		&--title {
+		}
+		&--img {
+			width: 100px;
+		}
+	}
+}
