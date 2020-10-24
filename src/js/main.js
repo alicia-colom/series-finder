@@ -8,7 +8,6 @@
 // [] 2.- si no hay favoritos, mostrar el texto "no tienes favoritos"
 // [] 3.- boton RESET en búsqueda --> que borre las series que aparecen en TU BUSQUEDA
 
-
 ////////////////
 
 // ARRAYS PARA OPERAR:
@@ -95,9 +94,10 @@ function addFavEvent() {
 
 // FUNCIÓN PARA MANEJAR FAVORITOS:
 function handleFav(event) {
-	const idSearch = event.currentTarget.dataset.id;
+	const idSearch = parseInt(event.currentTarget.dataset.id);
 	const titleSearch = event.currentTarget.querySelector('.js-searchItemTitle');
 	const imgSearch = event.currentTarget.querySelector('.js-searchItemImg');
+
 	if (event.currentTarget.classList.contains('addFav')) {
 		event.currentTarget.classList.remove('addFav');
 		favArray = favArray.filter(
@@ -124,12 +124,17 @@ const containerFav = document.querySelector('.js-favList');
 // FUNCION PARA PINTAR FAVORITOS EN HTML:
 function paintFav() {
 	let liFav = '';
-	for (let i = 0; i < favArray.length; i++) {
-		liFav += `<li class="js-favItem favList__favItem center" data-id="${favArray[i].showId}">`;
-		liFav += `<h3 class="js-favItemTitle favList__favItem--title">${favArray[i].showName}</h3>`;
-		liFav += `<img class="js-favItemImg favList__favItem--img" src="${favArray[i].showImage}" alt="Imagen del cartel de ${favArray[i].showAlt}" title="Cartel de ${favArray[i].showTitle}"/>`;
-		liFav += `</li>`;
-		containerFav.innerHTML = liFav;
+	if (favArray.length === 0) {
+		containerFav.innerHTML = '';
+	} else {
+		for (let i = 0; i < favArray.length; i++) {
+			liFav += `<li class="js-favItem favList__favItem center" data-id="${favArray[i].showId}">`;
+			liFav += `<h3 class="js-favItemTitle favList__favItem--title">${favArray[i].showName}</h3>`;
+			liFav += `<img class="js-favItemImg favList__favItem--img" src="${favArray[i].showImage}" alt="Imagen del cartel de ${favArray[i].showAlt}" title="Cartel de ${favArray[i].showTitle}"/>`;
+			liFav += `<button class="js-btnQuit favList__favItem--btnQuit">x</button>`;
+			liFav += `</li>`;
+			containerFav.innerHTML = liFav;
+		}
 	}
 }
 
@@ -147,4 +152,3 @@ function paintFav() {
 // 	}
 // }
 // emptyFav();
-

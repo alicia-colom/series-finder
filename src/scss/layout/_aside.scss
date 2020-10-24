@@ -60,5 +60,17 @@
 		&--img {
 			width: 100px;
 		}
+		&--btnQuit {
+			width: 22px;
+			height: 22px;
+			background-color: $color-font;
+			border: none;
+			border-radius: 25%;
+			color: $color-bg-2;
+			font-weight: bold;
+			font-size: 20px;
+			text-align: center;
+			padding-bottom: 25px;
+		}
 	}
 }
