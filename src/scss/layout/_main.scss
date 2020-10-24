@@ -2,18 +2,21 @@
 
 }
 
-.searchlist {
+.addFav {
+	background-color: $color-main;
+}
 
-  &__title {
+.searchList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 
-  }
-  &__searchItem {
-
-    &--title {
-
-    }
-    &--img {
-      
-    }
-  }
+	&__searchItem {
+    
+		&--title {
+      font-size: 25px;
+		}
+		&--img {
+		}
+	}
 }

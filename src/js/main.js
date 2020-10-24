@@ -63,7 +63,7 @@ function existMediumImg(photo) {
 	if (photo !== null && photo.medium !== null) {
 		return photo.medium;
 	} else {
-		return '//via.placeholder.com/210x295/e65027/800080/?text=¿?';
+		return '//via.placeholder.com/210x295/de4242/7a3476/?text=¿?';
 		//'../../assets/images/carta_ajuste.png';
 	}
 }
@@ -73,9 +73,8 @@ const containerSearch = document.querySelector('.js-searchList');
 // FUNCION PARA PINTAR BÚSQUEDA EN HTML:
 function paintSearch() {
 	let liSearch = '';
-	liSearch += `<h2 class="searchList__title">Tu búsqueda</h2>`;
 	for (let i = 0; i < searchArray.length; i++) {
-		liSearch += `<li class="js-searchItem searchList__searchItem" data-id="${searchArray[i].showId}">`;
+		liSearch += `<li class="js-searchItem searchList__searchItem center" data-id="${searchArray[i].showId}">`;
 		liSearch += `<h3 class="js-searchItemTitle searchList__searchItem--title">${searchArray[i].showName}</h3>`;
 		liSearch += `<img class="js-searchItemImg searchList__searchItem--img" src="${searchArray[i].showImage}" alt="Imagen del cartel de ${searchArray[i].showName}" title="Cartel de ${searchArray[i].showName}"/>`;
 		liSearch += `</li>`;
@@ -126,7 +125,7 @@ const containerFav = document.querySelector('.js-favList');
 function paintFav() {
 	let liFav = '';
 	for (let i = 0; i < favArray.length; i++) {
-		liFav += `<li class="js-favItem favList__favItem" data-id="${favArray[i].showId}">`;
+		liFav += `<li class="js-favItem favList__favItem center" data-id="${favArray[i].showId}">`;
 		liFav += `<h3 class="js-favItemTitle favList__favItem--title">${favArray[i].showName}</h3>`;
 		liFav += `<img class="js-favItemImg favList__favItem--img" src="${favArray[i].showImage}" alt="Imagen del cartel de ${favArray[i].showAlt}" title="Cartel de ${favArray[i].showTitle}"/>`;
 		liFav += `</li>`;
@@ -148,3 +147,4 @@ function paintFav() {
 // 	}
 // }
 // emptyFav();
+

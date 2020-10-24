@@ -1,13 +1,16 @@
 .body {
-  background-color: #8cd8dd;
-  font-family: "Roboto", sans-serif;;
+  background-color: $color-bg;
+  font-family: "Roboto", sans-serif;
+  color: $color-font;
 }
 
 .hidden {
   display: none;
 }
 
-@import 'layout/header';
-@import 'layout/aside';
-@import 'layout/main';
-@import 'layout/footer';
+.center {
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

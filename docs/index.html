@@ -12,8 +12,8 @@
 		<!--     <link rel="icon" href="./assets/images/favicon.png" /> -->
 	</head>
 
-	<body class="body">
-		<header class="header">
+	<body class="body center">
+		<header class="header center">
 			<h1 class="header__title">
 				<img
 					class="header__title--logo"
@@ -24,9 +24,9 @@
 			<h2 class="header__subtitle">Search&chill</h2>
 		</header>
 
-		<aside class="aside">
+		<aside class="aside center">
 			<section class="aside__search">
-				<form action="" class="form">
+				<form action="" class="form center">
 					<label for="search" class="form__label">¿Qué te apetece ver hoy?</label>
 					<input
 						id="search"
@@ -54,7 +54,7 @@
 					Debes introducir una palabra para poder realizar la búsqueda
 				</p>
 			</section>
-			<section class="aside__favList">
+			<section class="aside__favList center">
 				<h2 class="aside__favList--title">Lista de favoritos</h2>
 				<p class="js-favListEmpty aside__favList--empty hidden">
 					Tu lista de favoritos está vacía.
@@ -64,7 +64,7 @@
 				</p>
 				<ul class="js-favList favList">
 					<!-- Elemento FAV para uso en JS -->
-					<li class="js-favItem favList__favItem">
+		<!-- 			<li class="js-favItem favList__favItem">
 						<h3 class="js-favItemTitle favList__favItem--title"></h3>
 						<img
 							class="js-favItemImg favList__favItem--img"
@@ -72,16 +72,16 @@
 							alt=""
 							title=""
 						/>
-					</li>
+					</li> -->
 					<!-- fin elemento FAV -->
 				</ul>
 			</section>
 		</aside>
 
 		<main class="main">
-			<ul class="js-searchList searchList">
+			<ul class="js-searchList searchList center">
 		    <!-- Elemento SEARCH para uso en JS -->
-		    <h2 class="searchList__title"></h2>
+		<!--     
 				<li class="js-searchItem searchList__searchItem">
 					<h3 class="js-searchItemTitle searchList__searchItem--title"></h3>
 					<img
@@ -90,19 +90,17 @@
 						alt=""
 						title=""
 					/>
-				</li>
+				</li> -->
 				<!-- fin elemento SEARCH -->
 			</ul>
 		</main>
 
-		<footer class="footer">
-		  <div>
+		<footer class="footer center">
 		    <p class="footer__copyright">
 		      Made with<span class="footer__copyright--icon"> love </span>by
 		      <span class="footer__copyright--author"> Alicia Colom </span>
 		    </p>
 		    <small class="footer__small">Adalab #PromoKizzy 2020</small>
-		  </div>
 		</footer>
 
 		<script src="./assets/js/main.js"></script>
