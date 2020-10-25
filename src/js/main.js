@@ -82,7 +82,6 @@ function paintSearch() {
 		} else {
 			liSearch += `<li class="js-searchItem searchList__searchItem center" data-id="${searchArray[i].showId}">`;
 		}
-
 		liSearch += `<h3 class="js-searchItemTitle searchList__searchItem--title" href="#0">${searchArray[i].showName}</h3>`;
 		liSearch += `<img class="js-searchItemImg searchList__searchItem--img" src="${searchArray[i].showImage}" alt="Imagen del cartel de ${searchArray[i].showName}" title="Cartel de ${searchArray[i].showName}"/>`;
 		liSearch += `</li>`;
@@ -160,47 +159,28 @@ function addQuitFavEvent() {
 
 // FUNCIÓN PARA QUITAR FAVORITOS:
 function handleQuitFav(event) {
-	console.log('entro en la función BTNquit');
-	console.log(favArray);
 	const idSearch = parseInt(event.currentTarget.dataset.id);
-	///*** ¿? condición: si hay algún elemento de FavArray que
-	///*** sea igual que otro en SearchArray *****
-	for (let i = 0; i < favArray.length; i++) {
-		if (idSearch === parseInt(favArray[i].id)) {
-			favArray.splice([i], 1);
-			// event.currentTarget.classList.remove('addFav');
-			// favArray = favArray.filter(
-			// 	(eachFavItem) => eachFavItem.showId !== idSearch
-			// );
-			console.log('entro en IF de quit');
-			console.log(favArray);
-		}
-	}
+	favArray = favArray.filter((eachFavItem) => eachFavItem.showId !== idSearch);
 	paintFav();
 	paintSearch();
-	addFavEvent();
+	storeData();
 }
 
 chargeData();
 
 // FUNCION DE ALMACENAJE DE DATOS DEL LOCALSTORAGE:
 function storeData() {
-	// console.log('guarda');
 	const jsonData = JSON.stringify(favArray);
 	localStorage.setItem('filledData', jsonData);
-	// console.log(jsonData);
 }
 
 // FUNCION DE RECARGA DE DATOS DEL LOCALSTORAGE:
 function chargeData() {
-	// console.log('carga');
 	const storedData = localStorage.getItem('filledData');
-	// console.log(storedData);
 	const lastData = JSON.parse(storedData);
 	if (lastData !== null) {
 		favArray = lastData;
 	}
-	console.log(lastData);
 	paintFav();
 }
 
@@ -210,7 +190,6 @@ const headerFav = document.querySelector('.js-favHeader');
 function collapseFav() {
 	containerFav.classList.toggle('collapse');
 	if (containerFav.innerHTML.length > 0) {
-		console.log('entro en IF para quiter texto de favorito vacio');
 		containerFav;
 		// adviceFav.classList.add('hidden');
 	}
