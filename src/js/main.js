@@ -71,10 +71,10 @@ const containerSearch = document.querySelector('.js-searchList');
 
 // FUNCION PARA PINTAR BÚSQUEDA EN HTML:
 function paintSearch() {
-	let liSearch = '';
+	let liSearch = '<h2 class="searchList__title">Tu búsqueda</h2>';
 	for (let i = 0; i < searchArray.length; i++) {
 		liSearch += `<li class="js-searchItem searchList__searchItem center" data-id="${searchArray[i].showId}">`;
-		liSearch += `<h3 class="js-searchItemTitle searchList__searchItem--title">${searchArray[i].showName}</h3>`;
+		liSearch += `<h3 class="js-searchItemTitle searchList__searchItem--title" href="#0">${searchArray[i].showName}</h3>`;
 		liSearch += `<img class="js-searchItemImg searchList__searchItem--img" src="${searchArray[i].showImage}" alt="Imagen del cartel de ${searchArray[i].showName}" title="Cartel de ${searchArray[i].showName}"/>`;
 		liSearch += `</li>`;
 		containerSearch.innerHTML = liSearch;
@@ -104,6 +104,7 @@ function handleFav(event) {
 			(eachFavItem) => eachFavItem.showId !== idSearch
 		);
 		paintFav();
+		storeData();
 	} else {
 		event.currentTarget.classList.add('addFav');
 		favArray.push(
@@ -116,6 +117,7 @@ function handleFav(event) {
 			)
 		);
 		paintFav();
+		storeData();
 	}
 }
 
@@ -128,15 +130,44 @@ function paintFav() {
 		containerFav.innerHTML = '';
 	} else {
 		for (let i = 0; i < favArray.length; i++) {
-			liFav += `<li class="js-favItem favList__favItem center" data-id="${favArray[i].showId}">`;
-			liFav += `<h3 class="js-favItemTitle favList__favItem--title">${favArray[i].showName}</h3>`;
-			liFav += `<img class="js-favItemImg favList__favItem--img" src="${favArray[i].showImage}" alt="Imagen del cartel de ${favArray[i].showAlt}" title="Cartel de ${favArray[i].showTitle}"/>`;
+			liFav += `<li class="js-favItem favList__favItem " data-id="${favArray[i].showId}">`;
 			liFav += `<button class="js-btnQuit favList__favItem--btnQuit">x</button>`;
+			liFav += `<h3 class="js-favItemTitle favList__favItem--title">${favArray[i].showName}</h3>`;
+			liFav += `<img class="js-favItemImg favList__favItem--img" src="${favArray[i].showImage}" alt="${favArray[i].showAlt}" title="${favArray[i].showTitle}"/>`;
 			liFav += `</li>`;
 			containerFav.innerHTML = liFav;
 		}
 	}
+	addQuitFavEvent();
 }
+
+// FUNCIÓN PARA AÑADIR EVENTO A CADA BOTÓN DE QUITFAV:
+function addQuitFavEvent() {
+	console.log('ESTOY PONENDO EVETNO EN QUIT');
+	const buttonsQuit = document.querySelectorAll('.js-btnQuit');
+	for (const eachBtnQuit of buttonsQuit) {
+		eachBtnQuit.addEventListener('click', handleQuitFav);
+	}
+}
+
+// FUNCIÓN PARA QUITAR FAVORITOS:
+function handleQuitFav(event) {
+	const idSearch = parseInt(event.currentTarget.dataset.id);
+	///*** ¿? condición: si hay algún elemento de FavArray que
+	///*** sea igual que otro en SearchArray *****
+	if (!event.currentTarget.classList.contains('addFav')) {
+		event.currentTarget.classList.remove('addFav');
+		favArray = favArray.filter(
+			(eachFavItem) => eachFavItem.showId !== idSearch
+		);
+		console.log('entro en IF de quit');
+		console.log(favArray);
+	} else {
+		console.log('entro en else de quit');
+	}
+}
+
+chargeData();
 
 // MEJORA:  FUNCION PARA AVISAR DE FAVORITOS VACÍO:
 // const emptySearch = document.querySelector('.js-favListEmpty');
@@ -152,3 +183,25 @@ function paintFav() {
 // 	}
 // }
 // emptyFav();
+
+
+// FUNCÍON DE ALMACENAJE DE DATOS DEL LOCALSTORAGE:
+function storeData() {
+	// console.log('guarda');
+	const jsonData = JSON.stringify(favArray);
+	localStorage.setItem('filledData', jsonData);
+	// console.log(jsonData);
+}
+
+// FUNCÍON DE RECARGA DE DATOS DEL LOCALSTORAGE:
+function chargeData() {
+	// console.log('carga');
+	const storedData = localStorage.getItem('filledData');
+	// console.log(storedData);
+	const lastData = JSON.parse(storedData);
+	if (lastData !== null) {
+		favArray = lastData;
+	}
+	console.log(lastData);
+	paintFav();
+}

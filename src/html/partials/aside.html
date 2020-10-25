@@ -1,7 +1,8 @@
 <aside class="aside center">
-	<section class="aside__search">
+	<section class="aside__search center">
 		<form action="" class="form center">
 			<label for="search" class="form__label">¿Qué te apetece ver hoy?</label>
+
 			<input
 				id="search"
 				type="text"
@@ -11,6 +12,9 @@
 				value=""
 				required
 			/>
+			<p class="js-searchWarning aside__search--warning hidden">
+				Debes introducir una palabra para poder realizar la búsqueda
+			</p>
 			<input
 				type="button"
 				class="js-searchBtn form__btn"
@@ -24,9 +28,6 @@
 				title="Clica aquí para borrar tu búsqueda"
 			/>
 		</form>
-		<p class="js-searchWarning aside__search--warning hidden">
-			Debes introducir una palabra para poder realizar la búsqueda
-		</p>
 	</section>
 	<section class="aside__favList center">
 		<h2 class="aside__favList--title">Lista de favoritos</h2>
@@ -38,7 +39,7 @@
 		</p>
 		<ul class="js-favList favList">
 			<!-- Elemento FAV para uso en JS -->
-<!-- 			<li class="js-favItem favList__favItem" data-id="xxx">
+			<!-- 			<li class="js-favItem favList__favItem center" data-id="xxx">
 				<h3 class="js-favItemTitle favList__favItem--title"></h3>
 				<img
 					class="js-favItemImg favList__favItem--img"

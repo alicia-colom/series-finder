@@ -1,11 +1,21 @@
 .aside {
 	&__search {
+		width: 250px;
 		&--warning {
+			background-color: $color-bg-2;
+			color: $color-font;
+			font-family: $font-second;
+			font-size: 14px;
+			text-align: center;
+			padding: 12px;
+			margin: 10px;
+			border: $color-main dotted 2px;
 		}
 	}
 	&__favList {
+		width: 365px;
 		&--title {
-			color: #de4242;
+			color: $color-main;
 			font-size: 24px;
 			text-transform: uppercase;
 			padding: 30px 0 15px 0;
@@ -18,7 +28,11 @@
 }
 
 .form {
+	width: 250px;
 	&__label {
+		font-family: $font-second;
+		font-size: 16px;
+		padding: 30px 0 15px 0;
 	}
 	&__textArea {
 		width: 100%;
@@ -30,10 +44,11 @@
 		background-color: $color-main;
 		border: none;
 		border-radius: 2px;
-		color: $color-font;
+		color: $color-bg-2;
 		font-weight: bold;
 		font-size: 17px;
 		text-transform: uppercase;
+		margin: 3px 0;
 	}
 	&__reset {
 		width: 100%;
@@ -48,29 +63,46 @@
 }
 
 .favList {
-	max-width: 80%;
 	background-color: $color-bg-2;
+	list-style-type: none;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+	justify-content: left;
+	margin: 3px;
+	:hover {
+		background-color: $color-bg;
+	}
 	&__favItem {
+		width: 175px;
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: space-between;
+		margin: 2px;
+
 		&--title {
+			width: 92px;
+			font-size: 12px;
 		}
 		&--img {
-			width: 100px;
+			width: 60px;
+			margin: 2px 0 2px 3px;
 		}
 		&--btnQuit {
-			width: 22px;
-			height: 22px;
+			width: 16px;
+			height: 18px;
 			background-color: $color-font;
 			border: none;
 			border-radius: 25%;
 			color: $color-bg-2;
 			font-weight: bold;
-			font-size: 20px;
+			font-size: 15px;
 			text-align: center;
-			padding-bottom: 25px;
+			padding: 0 3px 5px 4px;
+			margin-right: 3px;
+/* 			::hover {
+				background-color: $color-main;
+			} */
 		}
 	}
 }

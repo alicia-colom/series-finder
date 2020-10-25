@@ -1,22 +1,51 @@
 .main {
-
-}
-
-.addFav {
-	background-color: $color-main;
+	width: 100vw;
 }
 
 .searchList {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	margin: 10px;
+	border: $color-main solid 2px;
+	&__title {
+		color: $color-main;
+		font-size: 24px;
+		text-transform: uppercase;
+		padding: 20px 0 15px 0;
+	}
 
 	&__searchItem {
-    
+		background-color: $color-bg-2;
+		padding: 15px;
+		margin: 3px;
+		/* 		:hover {
+			text-decoration: underline;
+		} */
+
 		&--title {
-      font-size: 25px;
+			font-size: 20px;
 		}
 		&--img {
+			width: 90%;
+			margin: 15px;
 		}
 	}
+/* 	h3::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background: linear-gradient(to right, #b47dcd, #e878a2, #eb85ab);
+		z-index: 1;
+		transform: scaleX(0);
+		transform-origin: center;
+		transition: transform 0.5s ease-in-out;
+	}
+	h3:hover::before {
+		transform: scaleX(1);
+	} */
+}
+
+.addFav {
+	background-color: $color-second;
 }

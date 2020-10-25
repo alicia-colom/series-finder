@@ -1,13 +1,13 @@
 .header {
-
+	width: 100vw;
 	&__title {
-		width: 100vw;
+		width: 100%;
 		background-color: $color-main;
 		display: flex;
 		justify-content: center;
-		padding: 7px 0 7px 0;
+		padding: 9px 0 6px 0;
 		&--logo {
-			height: 110px;
+			height: 100px;
 			animation-name: logo;
 			animation-duration: 5s;
 			animation-iteration-count: 1;
@@ -22,10 +22,13 @@
 		}
 	}
 	&__subtitle {
+		width: 100%;
+/* 		background-color: $color-bg-2; */
 		color: $color-main;
 		font-size: 40px;
 		text-transform: capitalize;
 		font-style: oblique;
-		padding: 10px 0 15px 0;
+		text-align: center;
+		padding: 10px 0 12px 0;
 	}
 }

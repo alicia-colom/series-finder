@@ -1,15 +1,16 @@
 .footer {
-
-  &__copyright {
-
-    &--icon {
-
-    }
-    &--author {
-
-    }
-  }
-  &__small {
-    
-  }
+	&__copyright {
+    padding: 10px;
+		font-family: $font-second;
+		&--icon {
+			color: $color-main;
+		}
+		&--author {
+      font-weight: bold;
+      font-size: 18px;
+		}
+	}
+	&__small {
+    padding: 5px;
+	}
 }
