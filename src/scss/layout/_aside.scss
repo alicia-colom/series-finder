@@ -62,6 +62,11 @@
 			display: none;
 		}
 		&--advice {
+			text-align: center;
+			font-family: $font-second;
+			font-size: 14px;
+			padding: 12px;
+			margin: 10px;
 		}
 	}
 }
@@ -108,9 +113,9 @@
 	flex-wrap: wrap;
 	justify-content: left;
 	margin: 3px;
-	:hover {
+	/* 	:hover {
 		background-color: $color-bg;
-	}
+	} */
 	&__favItem {
 		width: 175px;
 		display: flex;

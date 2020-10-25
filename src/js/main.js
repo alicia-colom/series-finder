@@ -62,20 +62,27 @@ function existMediumImg(photo) {
 	if (photo !== null && photo.medium !== null) {
 		return photo.medium;
 	} else {
-		return '//via.placeholder.com/210x295/de4242/7a3476/?text=¿?';
+		return '//via.placeholder.com/210x295/de4242/282d4f/?text=CODEFLIX';
 		//'../../assets/images/carta_ajuste.png';
 	}
 }
 
+const mainSearch = document.querySelector('.js-searchMain');
 const containerSearch = document.querySelector('.js-searchList');
-const headerSearch = document.querySelector('.js-searchHeader');
 
 // FUNCION PARA PINTAR BÚSQUEDA EN HTML:
 function paintSearch() {
-	headerSearch.classList.remove('hidden');
+	mainSearch.classList.remove('hide');
 	let liSearch = '';
 	for (let i = 0; i < searchArray.length; i++) {
-		liSearch += `<li class="js-searchItem searchList__searchItem center" data-id="${searchArray[i].showId}">`;
+		if (
+			favArray.find((favElement) => favElement.showId === searchArray[i].showId)
+		) {
+			liSearch += `<li class="js-searchItem searchList__searchItem center addFav" data-id="${searchArray[i].showId}">`;
+		} else {
+			liSearch += `<li class="js-searchItem searchList__searchItem center" data-id="${searchArray[i].showId}">`;
+		}
+
 		liSearch += `<h3 class="js-searchItemTitle searchList__searchItem--title" href="#0">${searchArray[i].showName}</h3>`;
 		liSearch += `<img class="js-searchItemImg searchList__searchItem--img" src="${searchArray[i].showImage}" alt="Imagen del cartel de ${searchArray[i].showName}" title="Cartel de ${searchArray[i].showName}"/>`;
 		liSearch += `</li>`;
@@ -129,62 +136,52 @@ const containerFav = document.querySelector('.js-favList');
 function paintFav() {
 	let liFav = '';
 	if (favArray.length === 0) {
-		containerFav.innerHTML = '';
+		containerFav.innerHTML = `<div class="aside__favList--advice"><p>Tu lista de favoritos está vacía.</p><p>Realiza una búsqueda e incluye aquí tu selección.</p></div>`;
 	} else {
 		for (let i = 0; i < favArray.length; i++) {
-			liFav += `<li class="js-favItem favList__favItem " data-id="${favArray[i].showId}">`;
-			liFav += `<button class="js-btnQuit favList__favItem--btnQuit">x</button>`;
+			liFav += `<li class="js-favItem favList__favItem" data-id="${favArray[i].showId}">`;
+			liFav += `<button class="js-btnQuit favList__favItem--btnQuit" data-id="${favArray[i].showId}">x</button>`;
 			liFav += `<h3 class="js-favItemTitle favList__favItem--title">${favArray[i].showName}</h3>`;
 			liFav += `<img class="js-favItemImg favList__favItem--img" src="${favArray[i].showImage}" alt="${favArray[i].showAlt}" title="${favArray[i].showTitle}"/>`;
 			liFav += `</li>`;
 			containerFav.innerHTML = liFav;
 		}
+		addQuitFavEvent();
 	}
-	addQuitFavEvent();
 }
 
 // FUNCIÓN PARA AÑADIR EVENTO A CADA BOTÓN DE QUITFAV:
 function addQuitFavEvent() {
-	console.log('ESTOY PONENDO EVETNO EN QUIT');
 	const buttonsQuit = document.querySelectorAll('.js-btnQuit');
-	for (const eachBtnQuit of buttonsQuit) {
-		eachBtnQuit.addEventListener('click', handleQuitFav);
+	for (const btnQuit of buttonsQuit) {
+		btnQuit.addEventListener('click', handleQuitFav);
 	}
 }
 
 // FUNCIÓN PARA QUITAR FAVORITOS:
 function handleQuitFav(event) {
+	console.log('entro en la función BTNquit');
+	console.log(favArray);
 	const idSearch = parseInt(event.currentTarget.dataset.id);
 	///*** ¿? condición: si hay algún elemento de FavArray que
 	///*** sea igual que otro en SearchArray *****
-	if (!event.currentTarget.classList.contains('addFav')) {
-		event.currentTarget.classList.remove('addFav');
-		favArray = favArray.filter(
-			(eachFavItem) => eachFavItem.showId !== idSearch
-		);
-		console.log('entro en IF de quit');
-		console.log(favArray);
-	} else {
-		console.log('entro en else de quit');
+	for (let i = 0; i < favArray.length; i++) {
+		if (idSearch === parseInt(favArray[i].id)) {
+			favArray.splice([i], 1);
+			// event.currentTarget.classList.remove('addFav');
+			// favArray = favArray.filter(
+			// 	(eachFavItem) => eachFavItem.showId !== idSearch
+			// );
+			console.log('entro en IF de quit');
+			console.log(favArray);
+		}
 	}
+	paintFav();
+	paintSearch();
+	addFavEvent();
 }
 
 chargeData();
-
-// MEJORA:  FUNCION PARA AVISAR DE FAVORITOS VACÍO:
-// const emptySearch = document.querySelector('.js-favListEmpty');
-// const adviceSearch = document.querySelector('.js-favListAdvice');
-// function emptyFav() {
-// 	if (liFav.length < 1) {
-// 		console.log('entro en IF para quiter texto de favorito vacio');
-// 		emptySearch.classList.remove('hidden');
-// 		adviceSearch.classList.remove('hidden');
-// 	} else {
-// 		emptySearch.classList.add('hidden');
-// 		adviceSearch.classList.add('hidden');
-// 	}
-// }
-// emptyFav();
 
 // FUNCION DE ALMACENAJE DE DATOS DEL LOCALSTORAGE:
 function storeData() {
@@ -209,10 +206,14 @@ function chargeData() {
 
 // LISTA DE FAVORITOS COLAPSABLE:
 const headerFav = document.querySelector('.js-favHeader');
-const adviceFav = document.querySelector('.js-favListAdvice');
 
 function collapseFav() {
 	containerFav.classList.toggle('collapse');
+	if (containerFav.innerHTML.length > 0) {
+		console.log('entro en IF para quiter texto de favorito vacio');
+		containerFav;
+		// adviceFav.classList.add('hidden');
+	}
 	// if (favArray.length > 0) {
 	// 	adviceFav.classList.add('hidden');
 	// } else {
@@ -221,3 +222,9 @@ function collapseFav() {
 }
 
 headerFav.addEventListener('click', collapseFav);
+
+// MEJORA:  FUNCION PARA AVISAR DE FAVORITOS VACÍO:
+// function emptyFav() {
+
+// }
+// emptyFav();

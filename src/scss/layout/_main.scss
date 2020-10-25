@@ -7,6 +7,9 @@
 	justify-content: center;
 	align-items: center;
 }
+.hide {
+	display: none;
+}
 
 .searchList {
 	&__header {
@@ -25,7 +28,6 @@
 		color: $color-main;
 		font-size: 24px;
 	}
-
 	&__searchItem {
 		background-color: $color-bg-2;
 		padding: 15px;
