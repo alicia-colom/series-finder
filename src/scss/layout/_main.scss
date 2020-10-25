@@ -1,15 +1,29 @@
 .main {
-	width: 100vw;
+	width: 95vw;
+	margin: 15px;
+	border: $color-font solid 2px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .searchList {
-	margin: 10px;
-	border: $color-main solid 2px;
+	&__header {
+		width: 240px;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-evenly;
+		padding: 20px 0 15px 0;
+	}
 	&__title {
 		color: $color-main;
 		font-size: 24px;
 		text-transform: uppercase;
-		padding: 20px 0 15px 0;
+	}
+	&__icon {
+		color: $color-main;
+		font-size: 24px;
 	}
 
 	&__searchItem {
@@ -28,7 +42,7 @@
 			margin: 15px;
 		}
 	}
-/* 	h3::before {
+	/* 	h3::before {
 		content: '';
 		position: absolute;
 		bottom: 0;

@@ -13,14 +13,53 @@
 		}
 	}
 	&__favList {
-		width: 365px;
+		width: 368px;
+		margin-top: 15px;
+		border: $color-font solid 2px;
+		&--header {
+			width: 300px;
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-evenly;
+			padding: 20px 0;
+		}
 		&--title {
 			color: $color-main;
 			font-size: 24px;
 			text-transform: uppercase;
-			padding: 30px 0 15px 0;
 		}
-		&--empty {
+		&--arrow {
+			color: $color-main;
+			font-size: 24px;
+
+			animation-delay: 2s;
+			animation-duration: 5s;
+			animation-name: arrowJump;
+			animation-iteration-count: 5;
+			animation-timing-function: ease;
+			@keyframes arrowJump {
+				from {
+					transform: translate(0, 0);
+				}
+				5% {
+					transform: translate(0, 8px);
+				}
+				10% {
+					transform: translate(0, 3px);
+				}
+				15% {
+					transform: translate(0, 8px);
+				}
+				20% {
+					transform: translate(0, 0);
+				}
+				to {
+					transform: translate(0, 0);
+				}
+			}
+		}
+		.collapse {
+			display: none;
 		}
 		&--advice {
 		}
@@ -32,7 +71,7 @@
 	&__label {
 		font-family: $font-second;
 		font-size: 16px;
-		padding: 30px 0 15px 0;
+		padding: 15px 0;
 	}
 	&__textArea {
 		width: 100%;
@@ -100,7 +139,7 @@
 			text-align: center;
 			padding: 0 3px 5px 4px;
 			margin-right: 3px;
-/* 			::hover {
+			/* 			::hover {
 				background-color: $color-main;
 			} */
 		}

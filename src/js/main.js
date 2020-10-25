@@ -68,10 +68,12 @@ function existMediumImg(photo) {
 }
 
 const containerSearch = document.querySelector('.js-searchList');
+const headerSearch = document.querySelector('.js-searchHeader');
 
 // FUNCION PARA PINTAR BÚSQUEDA EN HTML:
 function paintSearch() {
-	let liSearch = '<h2 class="searchList__title">Tu búsqueda</h2>';
+	headerSearch.classList.remove('hidden');
+	let liSearch = '';
 	for (let i = 0; i < searchArray.length; i++) {
 		liSearch += `<li class="js-searchItem searchList__searchItem center" data-id="${searchArray[i].showId}">`;
 		liSearch += `<h3 class="js-searchItemTitle searchList__searchItem--title" href="#0">${searchArray[i].showName}</h3>`;
@@ -184,8 +186,7 @@ chargeData();
 // }
 // emptyFav();
 
-
-// FUNCÍON DE ALMACENAJE DE DATOS DEL LOCALSTORAGE:
+// FUNCION DE ALMACENAJE DE DATOS DEL LOCALSTORAGE:
 function storeData() {
 	// console.log('guarda');
 	const jsonData = JSON.stringify(favArray);
@@ -193,7 +194,7 @@ function storeData() {
 	// console.log(jsonData);
 }
 
-// FUNCÍON DE RECARGA DE DATOS DEL LOCALSTORAGE:
+// FUNCION DE RECARGA DE DATOS DEL LOCALSTORAGE:
 function chargeData() {
 	// console.log('carga');
 	const storedData = localStorage.getItem('filledData');
@@ -205,3 +206,18 @@ function chargeData() {
 	console.log(lastData);
 	paintFav();
 }
+
+// LISTA DE FAVORITOS COLAPSABLE:
+const headerFav = document.querySelector('.js-favHeader');
+const adviceFav = document.querySelector('.js-favListAdvice');
+
+function collapseFav() {
+	containerFav.classList.toggle('collapse');
+	// if (favArray.length > 0) {
+	// 	adviceFav.classList.add('hidden');
+	// } else {
+	// 	adviceFav.classList.toggle('hidden');
+	// }
+}
+
+headerFav.addEventListener('click', collapseFav);

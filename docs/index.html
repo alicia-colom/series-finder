@@ -57,14 +57,18 @@
 				</form>
 			</section>
 			<section class="aside__favList center">
-				<h2 class="aside__favList--title">Lista de favoritos</h2>
-				<p class="js-favListEmpty aside__favList--empty hidden">
-					Tu lista de favoritos está vacía.
-				</p>
-				<p class="js-favListAdvice aside__favList--advice hidden">
-					Realiza una búsqueda e incluye aquí tu selección.
-				</p>
-				<ul class="js-favList favList">
+				<div class="js-favHeader aside__favList--header">
+					<h2 class="aside__favList--title">Lista de favoritos</h2>
+					<i
+						class="fa fa-chevron-circle-down aside__favList--arrow"
+						aria-hidden="true"
+					></i>
+				</div>
+				<div class="js-favListAdvice aside__favList--advice hidden">
+					<p>Tu lista de favoritos está vacía.</p>
+					<p>Realiza una búsqueda e incluye aquí tu selección.</p>
+				</div>
+				<ul class="js-favList favList collapse">
 					<!-- Elemento FAV para uso en JS -->
 					<!-- 			<li class="js-favItem favList__favItem center" data-id="xxx">
 						<h3 class="js-favItemTitle favList__favItem--title"></h3>
@@ -82,11 +86,13 @@
 		</aside>
 
 		<main class="main">
-			<ul class="js-searchList searchList center">
-		    <!-- Elemento SEARCH para uso en JS -->
-		<!--     
+			<div class="js-searchHeader searchList__header hidden">
 				<h2 class="searchList__title">Tu búsqueda</h2>
-				<li class="js-searchItem searchList__searchItem">
+				<i class="fa fa-search searchList__icon" aria-hidden="true"></i>
+			</div>
+			<ul class="js-searchList searchList center">
+				<!-- Elemento SEARCH para uso en JS -->
+				<!--     <li class="js-searchItem searchList__searchItem">
 					<h3 class="js-searchItemTitle searchList__searchItem--title"></h3>
 					<img
 						class="js-searchItemImg searchList__searchItem--img"
