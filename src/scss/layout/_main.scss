@@ -9,6 +9,10 @@
 }
 
 .searchList {
+	@media all and (min-width: 768px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
 	&__header {
 		width: 210px;
 		padding: 20px 0 15px 0;
@@ -21,6 +25,9 @@
 		margin: 3px;
 		&:hover {
 			border: 1px solid $color-main;
+		}
+		@media all and (min-width: 768px) {
+			max-width: 200px;
 		}
 
 		&--title {
