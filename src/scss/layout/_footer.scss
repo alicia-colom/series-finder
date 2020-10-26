@@ -1,16 +1,35 @@
 .footer {
 	&__copyright {
-    padding: 10px;
+		padding: 10px;
 		font-family: $font-second;
+		font-size: 15px;
 		&--icon {
 			color: $color-main;
 		}
 		&--author {
-      font-weight: bold;
-      font-size: 18px;
+			font-weight: bold;
+			text-decoration: none;
+			color: $color-font;
+			&:hover {
+				cursor: pointer;
+				text-transform: uppercase;
+			}
+			&:active {
+				color: $color-main;
+			}
 		}
 	}
 	&__small {
-    padding: 5px;
+		text-decoration: none;
+		font-size: 12px;
+		padding: 5px;
+		color: $color-font;
+		&:hover {
+			cursor: pointer;
+			font-size: 13px;
+		}
+		&:active {
+			color: $color-main;
+		}
 	}
 }

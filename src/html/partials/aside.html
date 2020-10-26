@@ -2,16 +2,18 @@
 	<section class="aside__search center">
 		<form action="" class="form center">
 			<label for="search" class="form__label">¿Qué te apetece ver hoy?</label>
-
-			<input
-				id="search"
-				type="text"
-				class="js-searchTextArea form__textArea"
-				title="Escribe aquí tu término de búsqueda"
-				placeholder="Escribe aquí..."
-				value=""
-				required
-			/>
+			<div class="form__searchBox">
+				<i class="fa fa-search form__searchBox--icon" aria-hidden="true"></i>
+				<input
+					id="search"
+					type="text"
+					class="js-searchTextArea form__searchBox--textArea"
+					title="Escribe aquí tu término de búsqueda"
+					placeholder="Escribe aquí..."
+					value=""
+					required
+				/>
+			</div>
 			<p class="js-searchWarning aside__search--warning hidden">
 				Debes introducir una palabra para poder realizar la búsqueda
 			</p>
@@ -40,7 +42,7 @@
 
 		<ul class="js-favList favList collapse">
 			<!-- Elemento FAV para uso en JS -->
-<!-- 			<div class="aside__favList--advice">
+			<!-- 			<div class="aside__favList--advice">
 				<p>Tu lista de favoritos está vacía.</p>
 				<p>Realiza una búsqueda e incluye aquí tu selección.</p>
 			</div>
