@@ -1,20 +1,10 @@
 'use strict';
 
-// [] 1.- eliminar FAVs clicando sobre ellas
-//   [] 1.2.- incluir boton para eliminar FAVs
-//   [] 1.3.- event.currentTarget en el boton de eliminar las pelis de favoritos
-// 	 [] 1.4.- s queda pillada la FavList con un único elemento
-// 	 [] 1.5.- localStorage de FAVs
-// [] 2.- si no hay favoritos, mostrar el texto "no tienes favoritos"
-// [] 3.- boton RESET en búsqueda --> que borre las series que aparecen en TU BUSQUEDA
-
-////////////////
-
-// ARRAYS PARA OPERAR:
+// ARRAYS:
 let searchArray = [];
 let favArray = [];
 
-// OBJETOS CONSTRUCTORES PARA OPERAR:
+// CONSTRUCTOR OBJETS:
 function searchItem(id, name, img) {
 	this.showId = id; // = dataAPI.show.id
 	this.showName = name; // = dataAPI.show.name
@@ -33,7 +23,7 @@ const textAreaSearch = document.querySelector('.js-searchTextArea');
 const resetBtnSearch = document.querySelector('.js-searchReset');
 const warningSearch = document.querySelector('.js-searchWarning');
 
-// FUNCION PARA ENVÍO DE DATOS AL API:
+// FUNCTION FOR SENDING DATA TO API:
 function handleSearch() {
 	searchArray = [];
 	const textSearch = textAreaSearch.value;
@@ -57,7 +47,7 @@ function handleSearch() {
 	}
 }
 
-// FUNCION PARA COMPROBAR SI EXISTE IMAGE.MEDIUM EN LA API:
+// FUNCTION TO CHECK IMAGE.MEDIUM FROM API:
 function existMediumImg(photo) {
 	if (photo !== null && photo.medium !== null) {
 		return photo.medium;
@@ -70,7 +60,7 @@ function existMediumImg(photo) {
 const mainSearch = document.querySelector('.js-searchMain');
 const containerSearch = document.querySelector('.js-searchList');
 
-// FUNCION PARA PINTAR BÚSQUEDA EN HTML:
+// FUNCTION TO PAINT HTML SEARCH:
 function paintSearch() {
 	mainSearch.classList.remove('hide');
 	let liSearch = '';
@@ -89,10 +79,10 @@ function paintSearch() {
 	}
 }
 
-// EVENTO CLICK EN SEARCH:
+// EVENT CLICK ON SEARCH:
 btnSearch.addEventListener('click', handleSearch);
 
-// FUNCIÓN PARA AÑADIR EVENTO A CADA ITEM DE BÚSQUEDA:
+// FUNCTION TO ADD EVENT TO EACH SEARCH ITEM:
 function addFavEvent() {
 	const listSearch = document.querySelectorAll('.js-searchItem');
 	for (const eachSearchItem of listSearch) {
@@ -100,7 +90,7 @@ function addFavEvent() {
 	}
 }
 
-// FUNCIÓN PARA MANEJAR FAVORITOS:
+// FUNCTION TO OPERATE WITH FAVS:
 function handleFav(event) {
 	const idSearch = parseInt(event.currentTarget.dataset.id);
 	const titleSearch = event.currentTarget.querySelector('.js-searchItemTitle');
@@ -131,7 +121,7 @@ function handleFav(event) {
 
 const containerFav = document.querySelector('.js-favList');
 
-// FUNCION PARA PINTAR FAVORITOS EN HTML:
+// FUNCTION TO PAINT HTML FAV:
 function paintFav() {
 	let liFav = '';
 	if (favArray.length === 0) {
@@ -149,7 +139,7 @@ function paintFav() {
 	}
 }
 
-// FUNCIÓN PARA AÑADIR EVENTO A CADA BOTÓN DE QUITFAV:
+// FUNCTION TO ADD EVENT TO EACH QUIT FAV BUTTON:
 function addQuitFavEvent() {
 	const buttonsQuit = document.querySelectorAll('.js-btnQuit');
 	for (const btnQuit of buttonsQuit) {
@@ -157,7 +147,7 @@ function addQuitFavEvent() {
 	}
 }
 
-// FUNCIÓN PARA QUITAR FAVORITOS:
+// FUNCTION TO QUIT FAV:
 function handleQuitFav(event) {
 	const idSearch = parseInt(event.currentTarget.dataset.id);
 	favArray = favArray.filter((eachFavItem) => eachFavItem.showId !== idSearch);
@@ -168,13 +158,13 @@ function handleQuitFav(event) {
 
 chargeData();
 
-// FUNCION DE ALMACENAJE DE DATOS DEL LOCALSTORAGE:
+// FUNCTION TO STORE DATA IN LOCALSTORAGE:
 function storeData() {
 	const jsonData = JSON.stringify(favArray);
 	localStorage.setItem('filledData', jsonData);
 }
 
-// FUNCION DE RECARGA DE DATOS DEL LOCALSTORAGE:
+// FUNCTION TO GET DATA FROM LOCALSTORAGE:
 function chargeData() {
 	const storedData = localStorage.getItem('filledData');
 	const lastData = JSON.parse(storedData);
@@ -184,26 +174,18 @@ function chargeData() {
 	paintFav();
 }
 
-// LISTA DE FAVORITOS COLAPSABLE:
+// COLLAPSABLE FAV LIST:
 const headerFav = document.querySelector('.js-favHeader');
+const arrow = document.querySelector('.js-arrow');
 
 function collapseFav() {
 	containerFav.classList.toggle('collapse');
+	arrow.classList.toggle('aside__favList--arrowUp');
+	arrow.classList.toggle('aside__favList--arrowDown');
+	
 	if (containerFav.innerHTML.length > 0) {
 		containerFav;
-		// adviceFav.classList.add('hidden');
 	}
-	// if (favArray.length > 0) {
-	// 	adviceFav.classList.add('hidden');
-	// } else {
-	// 	adviceFav.classList.toggle('hidden');
-	// }
 }
 
 headerFav.addEventListener('click', collapseFav);
-
-// MEJORA:  FUNCION PARA AVISAR DE FAVORITOS VACÍO:
-// function emptyFav() {
-
-// }
-// emptyFav();

@@ -1,7 +1,4 @@
 .main {
-	width: 95vw;
-	margin: 15px;
-	border: $color-font solid 2px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -29,14 +26,16 @@
 		font-size: 24px;
 	}
 	&__searchItem {
-		background-color: $color-bg-2;
+		width: 95%;
+		background-color: $color-bg-3;
 		padding: 15px;
 		margin: 3px;
-		/* 		:hover {
-			text-decoration: underline;
-		} */
+		&:hover {
+			border: 1px solid $color-main;
+		}
 
 		&--title {
+			text-align: center;
 			font-size: 20px;
 		}
 		&--img {

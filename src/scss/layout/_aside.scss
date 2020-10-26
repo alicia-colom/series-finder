@@ -13,11 +13,8 @@
 		}
 	}
 	&__favList {
-		width: 368px;
-		margin-top: 15px;
-		border: $color-font solid 2px;
-		&:hover {
-			cursor: pointer;
+		@media all and (min-width: 768px) {
+			max-width: 768px;
 		}
 		&--header {
 			width: 300px;
@@ -25,16 +22,18 @@
 			flex-direction: row-reverse;
 			justify-content: space-evenly;
 			padding: 20px 0;
+			&:hover {
+				cursor: pointer;
+			}
 		}
 		&--title {
 			color: $color-main;
 			font-size: 24px;
 			text-transform: uppercase;
 		}
-		&--arrow {
+		&--arrowDown {
 			color: $color-main;
 			font-size: 24px;
-
 			animation-delay: 2s;
 			animation-duration: 5s;
 			animation-name: arrowJump;
@@ -61,10 +60,17 @@
 				}
 			}
 		}
+		&--arrowUp {
+			color: $color-main;
+			font-size: 24px;
+			transition: transform;
+			transform: rotate(180deg);
+		}
 		.collapse {
 			display: none;
 		}
 		&--advice {
+			background-color: $color-bg-3;
 			text-align: center;
 			font-family: $font-second;
 			font-size: 14px;
@@ -102,7 +108,7 @@
 			background-color: whitesmoke;
 			border: none;
 			&:focus {
-			outline: none;
+				outline: none;
 			}
 		}
 	}
@@ -119,7 +125,7 @@
 		margin: 3px 0;
 		&:hover {
 			font-size: 15.5px;
-			cursor: help;
+			cursor: pointer;
 		}
 	}
 	&__reset {
@@ -135,46 +141,50 @@
 }
 
 .favList {
-	background-color: $color-bg-2;
 	list-style-type: none;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: left;
+	justify-content: center;
 	margin: 3px;
-	/* 	:hover {
-		background-color: $color-bg;
-	} */
 	&__favItem {
-		width: 175px;
+		max-width: calc(50% - 4px);
+		background-color: $color-bg-3;
+		border-radius: 6px;
 		display: flex;
 		flex-direction: row-reverse;
 		align-items: center;
 		justify-content: space-between;
 		margin: 2px;
+		&:hover {
+			color: $color-main;
+		}
 
 		&--title {
 			width: 92px;
-			font-size: 12px;
+			font-size: 11px;
+			margin: 2px;
 		}
 		&--img {
-			width: 60px;
-			margin: 2px 0 2px 3px;
+			width: 40px;
+			border-radius: 6px;
+			margin: 3px;
 		}
 		&--btnQuit {
-			width: 16px;
+			width: 17px;
 			height: 18px;
 			background-color: $color-font;
 			border: none;
-			border-radius: 25%;
+			border-radius: 6px;
 			color: $color-bg-2;
 			font-weight: bold;
 			font-size: 15px;
 			text-align: center;
-			padding: 0 3px 5px 4px;
-			margin-right: 3px;
-			/* 			::hover {
-				background-color: $color-main;
-			} */
+			padding: 0 3px 3px 3px;
+			margin-right: 4px;
+			&:hover {
+				color: $color-main;
+				cursor: pointer;
+			}
 		}
 	}
 }
