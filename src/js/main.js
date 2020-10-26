@@ -5,12 +5,12 @@ let searchArray = [];
 let favArray = [];
 
 // CONSTRUCTOR OBJETS:
-function searchItem(id, name, img) {
+function SearchItem(id, name, img) {
 	this.showId = id; // = dataAPI.show.id
 	this.showName = name; // = dataAPI.show.name
 	this.showImage = img; // = dataAPI.show.image.medium
 }
-function favItem(id, name, img, alt, title) {
+function FavItem(id, name, img, alt, title) {
 	this.showId = id;
 	this.showName = name;
 	this.showImage = img;
@@ -37,7 +37,7 @@ function handleSearch() {
 					const idFromAPI = dataAPIList[i].show.id;
 					const nameFromAPI = dataAPIList[i].show.name;
 					const imgFromAPI = existMediumImg(dataAPIList[i].show.image);
-					searchArray.push(new searchItem(idFromAPI, nameFromAPI, imgFromAPI));
+					searchArray.push(new SearchItem(idFromAPI, nameFromAPI, imgFromAPI));
 				}
 				paintSearch();
 				addFavEvent();
@@ -104,7 +104,7 @@ function handleFav(event) {
 	} else {
 		event.currentTarget.classList.add('addFav');
 		favArray.push(
-			new favItem(
+			new FavItem(
 				idSearch,
 				titleSearch.innerHTML,
 				imgSearch.src,
@@ -180,7 +180,6 @@ function collapseFav() {
 	containerFav.classList.toggle('collapse');
 	arrow.classList.toggle('aside__favList--arrowUp');
 	arrow.classList.toggle('aside__favList--arrowDown');
-	
 	if (containerFav.innerHTML.length > 0) {
 		containerFav;
 	}
