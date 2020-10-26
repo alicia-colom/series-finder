@@ -75,6 +75,7 @@ function paintSearch() {
 		liSearch += `</li>`;
 		containerSearch.innerHTML = liSearch;
 	}
+	addFavEvent();
 }
 
 // EVENT CLICK ON SEARCH:
