@@ -10,21 +10,10 @@
 
 .searchList {
 	&__header {
-		width: 240px;
-		display: flex;
-		flex-direction: row-reverse;
-		justify-content: space-evenly;
+		width: 210px;
 		padding: 20px 0 15px 0;
 	}
-	&__title {
-		color: $color-main;
-		font-size: 24px;
-		text-transform: uppercase;
-	}
-	&__icon {
-		color: $color-main;
-		font-size: 24px;
-	}
+
 	&__searchItem {
 		width: 95%;
 		background-color: $color-bg-3;

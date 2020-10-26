@@ -35,7 +35,7 @@
 							id="search"
 							type="text"
 							class="js-searchTextArea form__searchBox--textArea"
-							title="Escribe aquí tu término de búsqueda"
+							title="Escribe tu término de búsqueda"
 							placeholder="Escribe aquí..."
 							value=""
 							required
@@ -48,19 +48,13 @@
 						type="button"
 						class="js-searchBtn form__btn"
 						value="Buscar"
-						title="Clica aquí para buscar"
-					/>
-					<input
-						type="reset"
-						class="js-searchReset form__reset hidden"
-						value="Borrar"
-						title="Clica aquí para borrar tu búsqueda"
+						title="Buscar en Codeflix"
 					/>
 				</form>
 			</section>
 			<section class="aside__favList listContainer center">
-				<div class="js-favHeader aside__favList--header">
-					<h2 class="aside__favList--title">Lista de favoritos</h2>
+				<div class="js-favHeader aside__favList--header listHeader" title="Desplegar lista de favoritos">
+					<h2>Lista de favoritos</h2>
 					<i
 						class="js-arrow fa fa-chevron-circle-down aside__favList--arrowDown"
 						aria-hidden="true"
@@ -89,9 +83,9 @@
 		</aside>
 
 		<main class="js-searchMain listContainer main hide">
-			<div class="searchList__header">
-				<h2 class="searchList__title">Tu búsqueda</h2>
-
+			<div class="searchList__header listHeader">
+				<h2>Tu búsqueda</h2>
+				<i class="fa fa-th-list" aria-hidden="true"></i>
 			</div>
 			<ul class="js-searchList searchList center">
 				<!-- Elemento SEARCH para uso en JS -->

@@ -20,7 +20,6 @@ function favItem(id, name, img, alt, title) {
 
 const btnSearch = document.querySelector('.js-searchBtn');
 const textAreaSearch = document.querySelector('.js-searchTextArea');
-const resetBtnSearch = document.querySelector('.js-searchReset');
 const warningSearch = document.querySelector('.js-searchWarning');
 
 // FUNCTION FOR SENDING DATA TO API:
@@ -31,7 +30,6 @@ function handleSearch() {
 		warningSearch.classList.remove('hidden');
 	} else {
 		warningSearch.classList.add('hidden');
-		resetBtnSearch.classList.remove('hidden');
 		fetch(`//api.tvmaze.com/search/shows?q=${textSearch}`)
 			.then((response) => response.json())
 			.then((dataAPIList) => {
@@ -129,7 +127,7 @@ function paintFav() {
 	} else {
 		for (let i = 0; i < favArray.length; i++) {
 			liFav += `<li class="js-favItem favList__favItem" data-id="${favArray[i].showId}">`;
-			liFav += `<button class="js-btnQuit favList__favItem--btnQuit" data-id="${favArray[i].showId}">x</button>`;
+			liFav += `<button class="js-btnQuit favList__favItem--btnQuit" data-id="${favArray[i].showId}" title="Eliminar de favoritos">x</button>`;
 			liFav += `<h3 class="js-favItemTitle favList__favItem--title">${favArray[i].showName}</h3>`;
 			liFav += `<img class="js-favItemImg favList__favItem--img" src="${favArray[i].showImage}" alt="${favArray[i].showAlt}" title="${favArray[i].showTitle}"/>`;
 			liFav += `</li>`;

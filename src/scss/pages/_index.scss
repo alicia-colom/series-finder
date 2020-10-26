@@ -1,24 +1,39 @@
 .body {
-  background-color: $color-bg;
-  font-family: $font-main;
-  color: $color-font;
+	background-color: $color-bg;
+	font-family: $font-main;
+	color: $color-font;
 }
 
 .hidden {
-  display: none;
+	display: none;
 }
 
 .center {
-  display: flex;
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
 .listContainer {
-  width: 95vw;
-  margin-top: 15px;
-  background-color: $color-bg-2;
-  border-radius: 6px;
+	width: 95vw;
+	margin-top: 15px;
+	background-color: $color-bg-2;
+	border-radius: 6px;
 }
 
+.listHeader {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+	h2 {
+		color: $color-main;
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+	i {
+		color: $color-main;
+		font-size: 20px;
+	}
+}
