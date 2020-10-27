@@ -192,14 +192,3 @@ function collapseFav() {
 }
 
 headerFav.addEventListener('click', collapseFav);
-
-// LOG BUTTON:
-const logBtn = document.querySelector('.js-logBtn');
-
-function handleConsoleSearch() {
-	for (const eachFav of favArray) {
-		console.log(eachFav.showName);
-	}
-}
-
-logBtn.addEventListener('click', handleConsoleSearch);
