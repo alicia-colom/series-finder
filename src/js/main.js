@@ -193,6 +193,7 @@ function collapseFav() {
 
 headerFav.addEventListener('click', collapseFav);
 
+// LOG BUTTON:
 const logBtn = document.querySelector('.js-logBtn');
 
 function handleConsoleSearch() {

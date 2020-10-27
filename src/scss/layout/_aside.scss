@@ -123,6 +123,11 @@
 	}
 }
 
+.btnLog {
+	background-color: $color-font;
+	color: $color-bg;
+}
+
 .favList {
 	list-style-type: none;
 	display: flex;
