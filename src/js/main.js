@@ -5,10 +5,11 @@ let searchArray = [];
 let favArray = [];
 
 // CONSTRUCTOR OBJETS:
-function SearchItem(id, name, img) {
+function SearchItem(id, name, img, status) {
 	this.showId = id; // = dataAPI.show.id
 	this.showName = name; // = dataAPI.show.name
 	this.showImage = img; // = dataAPI.show.image.medium
+	this.showStatus = status;
 }
 function FavItem(id, name, img, alt, title) {
 	this.showId = id;
@@ -37,7 +38,10 @@ function handleSearch() {
 					const idFromAPI = dataAPIList[i].show.id;
 					const nameFromAPI = dataAPIList[i].show.name;
 					const imgFromAPI = existMediumImg(dataAPIList[i].show.image);
-					searchArray.push(new SearchItem(idFromAPI, nameFromAPI, imgFromAPI));
+					const statusFromAPI = dataAPIList[i].show.status;
+					searchArray.push(
+						new SearchItem(idFromAPI, nameFromAPI, imgFromAPI, statusFromAPI)
+					);
 				}
 				paintSearch();
 				addFavEvent();
@@ -71,6 +75,7 @@ function paintSearch() {
 			liSearch += `<li class="js-searchItem searchList__searchItem center" data-id="${searchArray[i].showId}">`;
 		}
 		liSearch += `<h3 class="js-searchItemTitle searchList__searchItem--title" href="#0">${searchArray[i].showName}</h3>`;
+		liSearch += `<p class="js-status">${searchArray[i].showStatus}</p>`;
 		liSearch += `<img class="js-searchItemImg searchList__searchItem--img" src="${searchArray[i].showImage}" alt="Imagen del cartel de ${searchArray[i].showName}" title="Cartel de ${searchArray[i].showName}"/>`;
 		liSearch += `</li>`;
 		containerSearch.innerHTML = liSearch;
@@ -187,3 +192,13 @@ function collapseFav() {
 }
 
 headerFav.addEventListener('click', collapseFav);
+
+const logBtn = document.querySelector('.js-logBtn');
+
+function handleConsoleSearch() {
+	for (const eachFav of favArray) {
+		console.log(eachFav.showName);
+	}
+}
+
+logBtn.addEventListener('click', handleConsoleSearch);
